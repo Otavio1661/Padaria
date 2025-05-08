@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armazém do Sítio - Loanda/PR</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Armazém do Sítio</h1>
+    <p>Produtos Artesanais e Hortifrúti em Loanda/PR</p>
+  </header>
+  <main>
+    <section id="novo-produto">
+      <h2>Adicionar Novo Produto</h2>
+      <form id="produto-form">
+        <input type="text" id="nome-produto" placeholder="Nome do produto" required>
+        <input type="number" id="preco-produto" placeholder="Preço" required step="0.01">
+        <button type="submit">Adicionar Produto</button>
+      </form>
+    </section>
+    <section id="catalogo">
+      <h2>Catálogo de Produtos</h2>
+      <div id="produtos"></div>
+    </section>
+    <section id="carrinho">
+      <h2>Carrinho</h2>
+      <div id="itens-carrinho"></div>
+      <button id="checkout" disabled>Finalizar Pedido (WhatsApp)</button>
+    </section>
+    <section id="clientes">
+      <h2>Gestão de Clientes</h2>
+      <form id="cliente-form">
+        <input type="text" id="nome-cliente" placeholder="Nome" required>
+        <input type="text" id="contato-cliente" placeholder="Contato (WhatsApp)" required>
+        <button type="submit">Adicionar Cliente</button>
+      </form>
+      <ul id="lista-clientes"></ul>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>
