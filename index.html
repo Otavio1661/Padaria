@@ -3,42 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Armazém do Sítio - Loanda/PR</title>
+  <title>Padaria Pão Quente - Loanda/PR</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <h1>Armazém do Sítio</h1>
-    <p>Produtos Artesanais e Hortifrúti em Loanda/PR</p>
+    <h1>Padaria Pão Quente</h1>
+    <p>Pães, Bolos e Delícias Fresquinhas</p>
   </header>
   <main>
     <section id="novo-produto">
       <h2>Adicionar Novo Produto</h2>
       <form id="produto-form">
-        <input type="text" id="nome-produto" placeholder="Nome do produto" required>
-        <input type="number" id="preco-produto" placeholder="Preço" required step="0.01">
+        <input type="text" id="nome-produto" placeholder="Nome do produto (ex: Pão Francês)" required>
+        <input type="number" id="preco-produto" placeholder="Preço (R$)" required step="0.01">
         <button type="submit">Adicionar Produto</button>
       </form>
     </section>
+    <!-- Adicione isto no HTML, logo acima do catálogo (onde está o <div id="produtos">) -->
     <section id="catalogo">
-      <h2>Catálogo de Produtos</h2>
-      <div id="produtos"></div>
+      <h2>Cardápio</h2>
+    <input type="text" id="busca-produto" placeholder="Buscar produto...">
+    <div id="produtos"></div>
     </section>
     <section id="carrinho">
-      <h2>Carrinho</h2>
+      <h2>Seu Pedido</h2>
       <div id="itens-carrinho"></div>
-      <button id="checkout" disabled>Finalizar Pedido (WhatsApp)</button>
+      <samp>Total: R$ <span id="total">0.00</span></samp>
+      <button id="checkout" disabled>Finalizar Pedido via WhatsApp</button>
     </section>
     <section id="clientes">
-      <h2>Gestão de Clientes</h2>
+      <h2>Cadastro de Clientes</h2>
       <form id="cliente-form">
-        <input type="text" id="nome-cliente" placeholder="Nome" required>
-        <input type="text" id="contato-cliente" placeholder="Contato (WhatsApp)" required>
-        <button type="submit">Adicionar Cliente</button>
+        <input type="text" id="nome-cliente" placeholder="Nome do cliente" required>
+        <input type="text" id="contato-cliente" placeholder="WhatsApp +99 (99) 9999-9999" required>
+        <button type="submit">Cadastrar Cliente</button>
       </form>
       <ul id="lista-clientes"></ul>
     </section>
   </main>
   <script src="js/script.js"></script>
+  <script>
+    document.getElementById('contato-cliente').addEventListener('input', function(e) {
+        let x = e.target.value.replace(/\D/g, '').slice(0, 14); 
+        let masked = '+';
+    
+        if (x.length > 0) masked += x.slice(0, 2);
+        if (x.length > 2) masked += ' (' + x.slice(2, 4);
+        if (x.length > 4) masked += ') ' + x.slice(4, 8);
+        if (x.length > 8) masked += '-' + x.slice(8, 12);
+    
+        e.target.value = masked;
+    });
+    </script>
 </body>
 </html>

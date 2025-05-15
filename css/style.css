@@ -15,19 +15,42 @@ main {
 section {
   margin-bottom: 2rem;
 }
-#produtos,
-#itens-carrinho {
+
+#produtos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
   gap: 1rem;
 }
+
+#itens-carrinho {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 285px);
+  gap: 1em;
+}
+
 .product-card,
-.cart-item,
 .cliente-item {
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
 }
+
+.product-card {
+  width: 250px;
+}
+
+.cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 button {
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -40,10 +63,112 @@ button:disabled {
   background: #aaa;
 }
 
+samp {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: #4CAF50;
+  color: white;
+}
 
+input {
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+  padding: 1px 3px;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-right: 15px;
+}
+
+#busca-produto {
+  width: 300px;
+  margin-bottom: 10px;
+}
 
 .cart-item button,
 .cliente-item button {
   margin-left: 1rem;
   background: #e53935;
+}
+
+#checkout {
+  margin-top: 20px;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content select {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+
+@media (max-width:635px) {
+    #cliente-form button {
+      margin-top: 10px;
+  }
+
+    #produto-form button {
+      margin-top: 10px;
+  }
+}
+
+@media (max-width:493px) {
+  #produto-form, #cliente-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #produto-form input {
+    width: 80%;
+  }
+
+  #cliente-form input {
+    width: 80%;
+  }
+
+  #busca-produto {
+    width: 100%;
+  }
+
+  #produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+  }
+
+}
+
+@media (max-width:335px) {
+  .product-card {
+    width: 180px;
+    padding: 5px;
+  }
 }
