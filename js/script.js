@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const div = document.createElement('div');
       div.className = 'cart-item';
-      // div.style.width = '250px';
       div.innerHTML = `${item.nome} - R$ ${item.preco.toFixed(2)} `;
 
       const btnRemover = document.createElement('button');
@@ -134,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       const itemList = Object.keys(itemCount)
         .map(nome => `${itemCount[nome]} x ${nome}`)
-        .join('\n');  // <-- Aqui é o ponto chave
+        .join('\n');
   
       const total = carrinho.reduce((sum, item) => sum + item.preco, 0);
   
@@ -150,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.appendChild(select);
     modal.appendChild(btnConfirmar);
     overlay.appendChild(modal);
-    document.body.appendChild(overlay);  // <-- Certifique-se de adicionar o overlay no body
+    document.body.appendChild(overlay);
 
     const btnCancelar = document.createElement('button');
     btnCancelar.textContent = 'Cancelar';
@@ -209,7 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.target.reset();
   });
 
-  // 🔍 Escutador de busca
   document.getElementById('busca-produto').addEventListener('input', (e) => {
     const termo = e.target.value;
     renderProdutos(termo);
