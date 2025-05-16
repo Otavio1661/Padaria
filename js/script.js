@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const div = document.createElement('div');
       div.className = 'cart-item';
-      div.style.width = '250px';
+      // div.style.width = '250px';
       div.innerHTML = `${item.nome} - R$ ${item.preco.toFixed(2)} `;
 
       const btnRemover = document.createElement('button');
